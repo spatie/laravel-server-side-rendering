@@ -17,7 +17,7 @@ Making server side rendering a bit less hard in Laravel.
 </html>
 ```
 
-This package is a Laravel bridge for the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering) library. Before getting started, dig through the readme to learn about the underlying concepts and caveats.
+This package is a Laravel bridge for the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering) library. Before getting started, dig through the readme to learn about the underlying concepts and caveats. This readme also assumes you already have some know-how about building server rendered JavaScript apps.
 
 Vue and React example apps are available at [spatie/server-side-rendering-example](https://github.com/spatie/server-side-rendering-example) if you want to see it in action.
 
