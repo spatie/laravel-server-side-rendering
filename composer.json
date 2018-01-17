@@ -1,0 +1,60 @@
+{
+    "name": "spatie/laravel-server-side-rendering",
+    "description": "Server side rendering JavaScript in your Laravel application",
+    "keywords": [
+        "spatie",
+        "ssr",
+        "laravel-server-side-rendering"
+    ],
+    "homepage": "https://github.com/spatie/laravel-server-side-rendering",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian De Deyne",
+            "email": "sebastian@spatie.be",
+            "homepage": "https://spatie.be",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/spatie/server-side-rendering"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "spatie/server-side-rendering": "dev-master"
+    },
+    "require-dev": {
+        "larapack/dd": "^1.0",
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Spatie\\Ssr\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Spatie\\Ssr\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Spatie\\Ssr\\SsrServiceProvider"
+            ],
+            "aliases": {
+                "Ssr": "Spatie\\Ssr\\Facades\\Ssr"
+            }
+        }
+    }
+}
