@@ -74,7 +74,7 @@ When rendering the app—more about that later—use the script name _without_ i
 {!! ssr('js/app.js) !!}
 ```
 
-Your server script should call a `dispatch` function to send the rendered html back to the view. Here's a quick example of a set of Vue scripts for a server-rendered app. Read the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering) for a full explanation of how everything's tied together.
+Your server script should call a `dispatch` function to send the rendered html back to the view. Here's a quick example of a set of Vue scripts for a server-rendered app. Read the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering#core-concepts) readme for a full explanation of how everything's tied together.
 
 ```js
 // resources/assets/js/app.js
@@ -144,6 +144,8 @@ Rendering options can be chained after the function or facade call.
     </body>
 </html>
 ```
+
+Available options are documented at [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering#rendering-options).
 
 ### Testing
 
