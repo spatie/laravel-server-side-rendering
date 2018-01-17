@@ -1,0 +1,4 @@
+{
+    "/js/app-client.js": "/js/app-client.js?id=12345",
+    "/js/app-server.js": "/js/app-server.js?id=12345"
+}

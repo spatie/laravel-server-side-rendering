@@ -27,8 +27,8 @@
         "spatie/server-side-rendering": "dev-master"
     },
     "require-dev": {
-        "larapack/dd": "^1.0",
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^6.0",
+        "orchestra/testbench": "~3.5"
     },
     "autoload": {
         "psr-4": {

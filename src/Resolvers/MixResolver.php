@@ -15,9 +15,13 @@ class MixResolver implements Resolver
 
     public function getServerScriptContents(string $identifier) : string
     {
-        $path = public_path(
+        $publicPath = mix(
             str_replace_last('.js', '-server.js', $identifier)
         );
+
+        [$publicPathWithoutQuery] = explode('?', $publicPath);
+
+        $path = public_path($publicPathWithoutQuery);
 
         return file_get_contents($path);
     }
