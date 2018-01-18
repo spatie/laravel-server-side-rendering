@@ -16,7 +16,7 @@ class SsrServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../resources/config/ssr.php' => config_path('ssr.php'),
+            __DIR__ . '/../config/ssr.php' => config_path('ssr.php'),
         ], 'config');
     }
 
