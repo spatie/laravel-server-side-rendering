@@ -2,11 +2,8 @@
 
 namespace Spatie\Ssr;
 
-use Illuminate\Support\ServiceProvider;
-use Spatie\Ssr\Engine;
 use Spatie\Ssr\Engines\Node;
-use Spatie\Ssr\Renderer;
-use Spatie\Ssr\Resolver;
+use Illuminate\Support\ServiceProvider;
 
 class SsrServiceProvider extends ServiceProvider
 {
@@ -16,7 +13,7 @@ class SsrServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-            __DIR__ . '/../config/ssr.php' => config_path('ssr.php'),
+            __DIR__.'/../config/ssr.php' => config_path('ssr.php'),
         ], 'config');
     }
 
@@ -25,7 +22,7 @@ class SsrServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ssr.php', 'ssr');
+        $this->mergeConfigFrom(__DIR__.'/../config/ssr.php', 'ssr');
 
         $this->app
             ->when(Node::class)
@@ -50,7 +47,7 @@ class SsrServiceProvider extends ServiceProvider
                 return $serverRenderer
                     ->enabled($this->app->config->get('ssr.enabled'))
                     ->debug($this->app->config->get('ssr.debug'))
-                    ->withContext('url', '/' . $this->app->request->path())
+                    ->withContext('url', '/'.$this->app->request->path())
                     ->withContext($this->app->config->get('ssr.context'))
                     ->withEnv($this->app->config->get('ssr.env'));
             }

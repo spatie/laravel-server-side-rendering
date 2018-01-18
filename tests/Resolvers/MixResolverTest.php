@@ -14,7 +14,7 @@ class MixResolverTest extends TestCase
     {
         parent::setUp();
 
-        $this->manifestDirectory = __DIR__ . '/../public';
+        $this->manifestDirectory = __DIR__.'/../public';
     }
 
     /** @test */
