@@ -2,8 +2,8 @@
 
 namespace Spatie\Ssr\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Ssr\SsrServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -11,8 +11,8 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
-        $this->app->instance('path.public', __DIR__ . '/public');
-        $this->app->config->set('ssr.node.temp_path', __DIR__ . '/temp');
+        $this->app->instance('path.public', __DIR__.'/public');
+        $this->app->config->set('ssr.node.temp_path', __DIR__.'/temp');
     }
 
     protected function getPackageProviders($app)
