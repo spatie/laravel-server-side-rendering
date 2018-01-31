@@ -18,11 +18,7 @@ class MixResolver
             return $identifier;
         }
 
-        $publicPath = mix(
-            str_replace_last('.js', '-server.js', $identifier)
-        );
-
-        [$publicPathWithoutQuery] = explode('?', $publicPath);
+        [$publicPathWithoutQuery] = explode('?', $identifier);
 
         return public_path($publicPathWithoutQuery);
     }
