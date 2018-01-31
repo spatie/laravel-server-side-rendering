@@ -2,8 +2,6 @@
 
 namespace Spatie\Ssr;
 
-use Spatie\Ssr\Engine;
-use Spatie\Ssr\Renderer;
 use Spatie\Ssr\Engines\Node;
 use Spatie\Ssr\Resolvers\MixResolver;
 use Illuminate\Support\ServiceProvider;
@@ -49,7 +47,7 @@ class SsrServiceProvider extends ServiceProvider
                 return $serverRenderer
                     ->enabled($this->app->config->get('ssr.enabled'))
                     ->debug($this->app->config->get('ssr.debug'))
-                    ->context('url', '/' . $this->app->request->path())
+                    ->context('url', '/'.$this->app->request->path())
                     ->context($this->app->config->get('ssr.context'))
                     ->env($this->app->config->get('ssr.env'))
                     ->resolveEntryWith(new MixResolver($this->app->config->get('ssr.mix')));
