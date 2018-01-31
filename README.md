@@ -10,9 +10,12 @@ Making server side rendering a bit less hard in Laravel.
 
 ```blade
 <html>
-    <head>My server side rendered app</head>
+    <head>
+        <title>My server side rendered app</title>
+        <script defer src="{{ mix('app-client.js') }}">
+    </head>
     <body>
-        {!! ssr('js/app.js') !!}
+        {!! ssr('js/app-server.js') !!}
     </body>
 </html>
 ```
@@ -59,19 +62,18 @@ Besides the above, no configuration's required. If you need to tweak things anyw
 
 ### Setting up your scripts
 
-You'll need to build two scripts: a server script and a client script. Refer to your framework-of-choice's documentation on how to build those.
-
-This package uses a specific naming convention to find your scripts. Using mix, suffix the script names with `-client` and `-server`.
+You'll need to build two scripts: a server script and a client script. Refer to your frontend-framework-of-choice's documentation on how to build those.
 
 ```js
 mix.js('resources/assets/js/app-client.js', 'public/js')
    .js('resources/assets/js/app-server.js', 'public/js');
 ```
 
-When rendering the app—more about that later—use the script name _without_ it's suffix.
+The server script should be passed to the `ssr` function, the client script should be loaded manually. The package assumes you're using Laravel Mix, and will resolve the path for you. You can opt out of this behaviour by setting `mix` to `false` in the config file.
 
 ```blade
-{!! ssr('js/app.js) !!}
+{!! ssr('js/app-server.js) !!}
+<script src="{{ mix('js/app-client.js') }}">
 ```
 
 Your server script should call a `dispatch` function to send the rendered html back to the view. Here's a quick example of a set of Vue scripts for a server-rendered app. Read the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering#core-concepts) readme for a full explanation of how everything's tied together.
@@ -116,9 +118,12 @@ The package exposes an `ssr` helper to render your app.
 
 ```blade
 <html>
-    <head>My server side rendered app</head>
+    <head>
+        <title>My server side rendered app</title>
+        <script defer src="{{ mix('app-client.js') }}">
+    </head>
     <body>
-        {!! ssr('js/app.js') !!}
+        {!! ssr('js/app-server.js') !!}
     </body>
 </html>
 ```
@@ -127,9 +132,12 @@ A facade is available too.
 
 ```blade
 <html>
-    <head>My server side rendered app</head>
+    <head>
+        <title>My server side rendered app</title>
+        <script defer src="{{ mix('app-client.js') }}">
+    </head>
     <body>
-        {!! Ssr::entry('js/app.js') !!}
+        {!! Ssr::entry('js/app-server.js') !!}
     </body>
 </html>
 ```
@@ -138,9 +146,12 @@ Rendering options can be chained after the function or facade call.
 
 ```blade
 <html>
-    <head>My server side rendered app</head>
+    <head>
+        <title>My server side rendered app</title>
+        <script defer src="{{ mix('app-client.js') }}">
+    </head>
     <body>
-        {!! ssr('js/app.js')->withContext('user', $user)->loadScriptAsync() !!}
+        {!! ssr('js/app-server.js')->context('user', $user) !!}
     </body>
 </html>
 ```
