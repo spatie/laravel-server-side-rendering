@@ -9,6 +9,6 @@ class SsrTest extends TestCase
     {
         $result = ssr('js/app.js')->enabled()->debug()->render();
 
-        $this->assertEquals('<p>Hello, world!</p><script src="/js/app-client.js?id=12345"></script>', $result);
+        $this->assertEquals('<p>Hello, world!</p>', $result);
     }
 }

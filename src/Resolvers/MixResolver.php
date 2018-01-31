@@ -2,27 +2,28 @@
 
 namespace Spatie\Ssr\Resolvers;
 
-use Spatie\Ssr\Resolver;
-
-class MixResolver implements Resolver
+class MixResolver
 {
-    public function getClientScriptUrl(string $identifier) : string
+    /** @var bool */
+    protected $enabled;
+
+    public function __construct(bool $enabled)
     {
-        return mix(
-            str_replace_last('.js', '-client.js', $identifier)
-        );
+        $this->enabled = $enabled;
     }
 
-    public function getServerScriptContents(string $identifier) : string
+    public function __invoke(string $identifier) : string
     {
+        if (! $this->enabled) {
+            return $identifier;
+        }
+
         $publicPath = mix(
             str_replace_last('.js', '-server.js', $identifier)
         );
 
         [$publicPathWithoutQuery] = explode('?', $publicPath);
 
-        $path = public_path($publicPathWithoutQuery);
-
-        return file_get_contents($path);
+        return public_path($publicPathWithoutQuery);
     }
 }

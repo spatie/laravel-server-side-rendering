@@ -15,6 +15,12 @@ return [
     'debug' => env('APP_DEBUG', false),
 
     /*
+     * Set to true if you're using Laravel Mix, then you can pass a script
+     * identifier to `ssr` instead of a full path.
+     */
+    'mix' => true,
+
+    /*
      * The engine class is used to execute JavaScript. Node requires you to set
      * up some extra configuration below. If you want to use the V8 engine, make
      * sure the v8js php extension is available.
@@ -28,12 +34,6 @@ return [
         'node_path' => env('NODE_PATH', '/usr/local/bin/node'),
         'temp_path' => storage_path('app/ssr'),
     ],
-
-    /*
-     * The script resolver class is used to find server scripts and client
-     * script public paths.
-     */
-    'resolver' => \Spatie\Ssr\Resolvers\MixResolver::class,
 
     /*
      * Context is used to pass data to the server script. Fill this array with

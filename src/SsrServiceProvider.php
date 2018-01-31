@@ -2,11 +2,11 @@
 
 namespace Spatie\Ssr;
 
-use Illuminate\Support\ServiceProvider;
 use Spatie\Ssr\Engine;
-use Spatie\Ssr\Engines\Node;
 use Spatie\Ssr\Renderer;
-use Spatie\Ssr\Resolver;
+use Spatie\Ssr\Engines\Node;
+use Spatie\Ssr\Resolvers\MixResolver;
+use Illuminate\Support\ServiceProvider;
 
 class SsrServiceProvider extends ServiceProvider
 {
@@ -42,7 +42,6 @@ class SsrServiceProvider extends ServiceProvider
             });
 
         $this->app->singleton(Engine::class, $this->app->config->get('ssr.engine'));
-        $this->app->singleton(Resolver::class, $this->app->config->get('ssr.resolver'));
 
         $this->app->resolving(
             Renderer::class,
@@ -50,9 +49,10 @@ class SsrServiceProvider extends ServiceProvider
                 return $serverRenderer
                     ->enabled($this->app->config->get('ssr.enabled'))
                     ->debug($this->app->config->get('ssr.debug'))
-                    ->withContext('url', '/' . $this->app->request->path())
-                    ->withContext($this->app->config->get('ssr.context'))
-                    ->withEnv($this->app->config->get('ssr.env'));
+                    ->context('url', '/' . $this->app->request->path())
+                    ->context($this->app->config->get('ssr.context'))
+                    ->env($this->app->config->get('ssr.env'))
+                    ->resolveEntryWith(new MixResolver($this->app->config->get('ssr.mix')));
             }
         );
 
