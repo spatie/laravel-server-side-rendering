@@ -47,7 +47,7 @@ class SsrServiceProvider extends ServiceProvider
                 return $serverRenderer
                     ->enabled($this->app->config->get('ssr.enabled'))
                     ->debug($this->app->config->get('ssr.debug'))
-                    ->context('url', '/'.$this->app->request->path())
+                    ->context('url', $this->app->request->getRequestUri())
                     ->context($this->app->config->get('ssr.context'))
                     ->env($this->app->config->get('ssr.env'))
                     ->resolveEntryWith(new MixResolver($this->app->config->get('ssr.mix')));
