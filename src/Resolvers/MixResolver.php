@@ -18,7 +18,7 @@ class MixResolver
             return $identifier;
         }
 
-        [$publicPathWithoutQuery] = explode('?', $identifier);
+        list($publicPathWithoutQuery) = explode('?', $identifier);
 
         return public_path($publicPathWithoutQuery);
     }
