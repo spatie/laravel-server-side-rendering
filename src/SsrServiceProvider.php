@@ -39,7 +39,9 @@ class SsrServiceProvider extends ServiceProvider
                 return $this->app->config->get('ssr.node.temp_path');
             });
 
-        $this->app->singleton(Engine::class, $this->app->config->get('ssr.engine'));
+        $this->app->bind(Engine::class, function () {
+            return $this->app->make($this->app->config->get('ssr.engine'));
+        });
 
         $this->app->resolving(
             Renderer::class,
