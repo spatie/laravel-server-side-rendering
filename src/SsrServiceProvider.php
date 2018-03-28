@@ -2,9 +2,10 @@
 
 namespace Spatie\Ssr;
 
-use Spatie\Ssr\Engines\Node;
-use Spatie\Ssr\Resolvers\MixResolver;
 use Illuminate\Support\ServiceProvider;
+use Spatie\Ssr\Engines\Node;
+use Spatie\Ssr\Engines\V8;
+use Spatie\Ssr\Resolvers\MixResolver;
 
 class SsrServiceProvider extends ServiceProvider
 {
@@ -25,19 +26,16 @@ class SsrServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/ssr.php', 'ssr');
 
-        $this->app
-            ->when(Node::class)
-            ->needs('$nodePath')
-            ->give(function () {
-                return $this->app->config->get('ssr.node.node_path');
-            });
+        $this->app->singleton(Node::class, function () {
+            return new Node(
+                $this->app->config->get('ssr.node.node_path'),
+                $this->app->config->get('ssr.node.temp_path')
+            );
+        });
 
-        $this->app
-            ->when(Node::class)
-            ->needs('$tempPath')
-            ->give(function () {
-                return $this->app->config->get('ssr.node.temp_path');
-            });
+        $this->app->singleton(V8::class, function () {
+            return new V8(new \V8Js());
+        });
 
         $this->app->bind(Engine::class, function () {
             return $this->app->make($this->app->config->get('ssr.engine'));
