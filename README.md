@@ -22,7 +22,7 @@ Making server side rendering a bit less hard in Laravel.
 
 This package is a Laravel bridge for the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering) library. Before getting started, dig through the readme to learn about the underlying concepts and caveats. This readme also assumes you already have some know-how about building server rendered JavaScript apps.
 
-Vue and React example apps are available at [spatie/server-side-rendering-example](https://github.com/spatie/server-side-rendering-example) if you want to see it in action.
+Vue and React example apps are available at [spatie/laravel-server-side-rendering-examples](https://github.com/spatie/laravel-server-side-rendering-examples) if you want to see it in action.
 
 ## Installation
 
@@ -46,7 +46,7 @@ php artisan vendor:publish --provider="Spatie\Ssr\SsrServiceProvider" --tag="con
 
 First you'll need to pick an engine to execute your scripts. The server-side-rendering library ships with V8 and Node engines. By default, the package is configured to use node, since you probably already have that installed on your system.
 
-Set up the `NODE_PATH` environment variable to get started:
+Set up the `NODE_PATH` environment variable in your .env file to get started:
 
 ```
 NODE_PATH=/path/to/my/node
