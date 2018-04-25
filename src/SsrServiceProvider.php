@@ -2,10 +2,10 @@
 
 namespace Spatie\Ssr;
 
-use Illuminate\Support\ServiceProvider;
-use Spatie\Ssr\Engines\Node;
 use Spatie\Ssr\Engines\V8;
+use Spatie\Ssr\Engines\Node;
 use Spatie\Ssr\Resolvers\MixResolver;
+use Illuminate\Support\ServiceProvider;
 
 class SsrServiceProvider extends ServiceProvider
 {
