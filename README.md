@@ -123,7 +123,7 @@ The package exposes an `ssr` helper to render your app.
         <script defer src="{{ mix('app-client.js') }}">
     </head>
     <body>
-        {!! ssr('js/app-server.js') !!}
+        {!! ssr('js/app-server.js')->render() !!}
     </body>
 </html>
 ```
@@ -137,7 +137,7 @@ A facade is available too.
         <script defer src="{{ mix('app-client.js') }}">
     </head>
     <body>
-        {!! Ssr::entry('js/app-server.js') !!}
+        {!! Ssr::entry('js/app-server.js')->render() !!}
     </body>
 </html>
 ```
@@ -151,7 +151,7 @@ Rendering options can be chained after the function or facade call.
         <script defer src="{{ mix('app-client.js') }}">
     </head>
     <body>
-        {!! ssr('js/app-server.js')->context('user', $user) !!}
+        {!! ssr('js/app-server.js')->context('user', $user)->render() !!}
     </body>
 </html>
 ```
