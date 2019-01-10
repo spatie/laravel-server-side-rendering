@@ -2,8 +2,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-server-side-rendering.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-server-side-rendering)
 [![Build Status](https://img.shields.io/travis/spatie/laravel-server-side-rendering/master.svg?style=flat-square)](https://travis-ci.org/spatie/laravel-server-side-rendering)
-[![SensioLabsInsight](https://img.shields.io/sensiolabs/i/xxxxxxxxx.svg?style=flat-square)](https://insight.sensiolabs.com/projects/xxxxxxxxx)
-[![Quality Score](https://img.shields.io/scrutinizer/g/spatie/laravel-server-side-rendering.svg?style=flat-square)](https://scrutinizer-ci.com/g/spatie/laravel-server-side-rendering)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-server-side-rendering.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-server-side-rendering)
 
 Making server side rendering a bit less hard in Laravel.
