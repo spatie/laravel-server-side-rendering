@@ -70,7 +70,7 @@ mix.js('resources/assets/js/app-client.js', 'public/js')
 The server script should be passed to the `ssr` function, the client script should be loaded manually. The package assumes you're using Laravel Mix, and will resolve the path for you. You can opt out of this behaviour by setting `mix` to `false` in the config file.
 
 ```blade
-{!! ssr('js/app-server.js) !!}
+{!! ssr('js/app-server.js') !!}
 <script src="{{ mix('js/app-client.js') }}">
 ```
 
