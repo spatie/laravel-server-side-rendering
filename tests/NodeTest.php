@@ -7,7 +7,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class NodeTest extends Orchestra
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
