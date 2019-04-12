@@ -8,7 +8,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 
 class V8Test extends Orchestra
 {
-    public function setUp()
+    public function setUp(): void
     {
         if (! extension_loaded('v8js')) {
             $this->markTestSkipped('The V8Js extension is not available.');
