@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":255:{a:2:{s:7:"defects";a:1:{s:55:"Spatie\Ssr\Tests\V8Test::it_can_render_a_javascript_app";i:1;}s:5:"times";a:2:{s:57:"Spatie\Ssr\Tests\NodeTest::it_can_render_a_javascript_app";d:0.259;s:55:"Spatie\Ssr\Tests\V8Test::it_can_render_a_javascript_app";d:0.001;}}}
