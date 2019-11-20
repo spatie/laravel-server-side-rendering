@@ -25,7 +25,7 @@ return [
      * up some extra configuration below. If you want to use the V8 engine, make
      * sure the v8js php extension is available.
      */
-    'engine' => \Spatie\Ssr\Engines\Node::class,
+    'engine' => env('SSR_ENGINE', \Spatie\Ssr\Engines\Node::class),
 
     /*
      * Extra setup for the Node engine.
