@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-server-side-rendering` will be documented in this file
 
-## 1.3.0 - 2019-03-07
+## 1.4.0 - 2019-03-07
 
 - support for Laravel 7
 
