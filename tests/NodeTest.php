@@ -2,8 +2,8 @@
 
 namespace Spatie\Ssr\Tests;
 
-use Spatie\Ssr\SsrServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Spatie\Ssr\SsrServiceProvider;
 
 class NodeTest extends Orchestra
 {
