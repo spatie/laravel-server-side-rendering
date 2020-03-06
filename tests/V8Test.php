@@ -2,9 +2,9 @@
 
 namespace Spatie\Ssr\Tests;
 
+use Orchestra\Testbench\TestCase as Orchestra;
 use Spatie\Ssr\Engines\V8;
 use Spatie\Ssr\SsrServiceProvider;
-use Orchestra\Testbench\TestCase as Orchestra;
 
 class V8Test extends Orchestra
 {

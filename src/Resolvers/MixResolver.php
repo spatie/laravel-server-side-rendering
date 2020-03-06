@@ -12,13 +12,13 @@ class MixResolver
         $this->enabled = $enabled;
     }
 
-    public function __invoke(string $identifier) : string
+    public function __invoke(string $identifier): string
     {
         if (! $this->enabled) {
             return $identifier;
         }
 
-        list($publicPathWithoutQuery) = explode('?', $identifier);
+        [$publicPathWithoutQuery] = explode('?', $identifier);
 
         return public_path($publicPathWithoutQuery);
     }
