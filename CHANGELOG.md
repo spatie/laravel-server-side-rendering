@@ -2,6 +2,9 @@
 
 All notable changes to `laravel-server-side-rendering` will be documented in this file
 
+## 1.2.1 - 2020-03-06
+- support for Laravel 7.0
+
 ## 1.2.0 - 2019-09-17
 - support for Laravel 6.0
 
