@@ -32,7 +32,7 @@ return [
      */
     'node' => [
         'node_path' => env('NODE_PATH', '/usr/local/bin/node'),
-        'temp_path' => storage_path('app/ssr'),
+        'temp_path' => env('SSR_TEMP_PATH', storage_path('app/ssr')),
     ],
 
     /*
