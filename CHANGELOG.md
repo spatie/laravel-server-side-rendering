@@ -2,7 +2,7 @@
 
 All notable changes to `laravel-server-side-rendering` will be documented in this file
 
-## 1.4.2
+## 1.4.2 - 2020-09-09
 
 - support Laravel 8
 
