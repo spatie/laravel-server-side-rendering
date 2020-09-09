@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-server-side-rendering` will be documented in this file
 
+## 1.4.2
+
+- support Laravel 8
+
 ## 1.4.1
 
 - add temp path env variable (#58)
