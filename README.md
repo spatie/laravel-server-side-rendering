@@ -126,7 +126,7 @@ The package exposes an `ssr` helper to render your app.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! ssr('js/app-server.js')->render() !!}
@@ -140,7 +140,7 @@ A facade is available too.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! Ssr::entry('js/app-server.js')->render() !!}
@@ -154,7 +154,7 @@ Rendering options can be chained after the function or facade call.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! ssr('js/app-server.js')->context('user', $user)->render() !!}
