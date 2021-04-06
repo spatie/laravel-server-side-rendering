@@ -26,10 +26,10 @@ class SsrServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/../config/ssr.php', 'ssr');
 
-        $this->app->singleton(Node::class, function () {
+        $this->app->singleton(Node::class, function ($app) {
             return new Node(
-                $this->app->config->get('ssr.node.node_path'),
-                $this->app->config->get('ssr.node.temp_path')
+                $app->config->get('ssr.node.node_path'),
+                $app->config->get('ssr.node.temp_path')
             );
         });
 
@@ -37,20 +37,20 @@ class SsrServiceProvider extends ServiceProvider
             return new V8(new \V8Js());
         });
 
-        $this->app->bind(Engine::class, function () {
-            return $this->app->make($this->app->config->get('ssr.engine'));
+        $this->app->bind(Engine::class, function ($app) {
+            return $app->make($app->config->get('ssr.engine'));
         });
 
         $this->app->resolving(
             Renderer::class,
-            function (Renderer $serverRenderer) {
+            function (Renderer $serverRenderer, $app) {
                 return $serverRenderer
-                    ->enabled($this->app->config->get('ssr.enabled'))
-                    ->debug($this->app->config->get('ssr.debug'))
-                    ->context('url', $this->app->request->getRequestUri())
-                    ->context($this->app->config->get('ssr.context'))
-                    ->env($this->app->config->get('ssr.env'))
-                    ->resolveEntryWith(new MixResolver($this->app->config->get('ssr.mix')));
+                    ->enabled($app->config->get('ssr.enabled'))
+                    ->debug($app->config->get('ssr.debug'))
+                    ->context('url', $app->request->getRequestUri())
+                    ->context($app->config->get('ssr.context'))
+                    ->env($app->config->get('ssr.env'))
+                    ->resolveEntryWith(new MixResolver($app->config->get('ssr.mix')));
             }
         );
 
