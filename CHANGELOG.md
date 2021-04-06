@@ -2,7 +2,11 @@
 
 All notable changes to `laravel-server-side-rendering` will be documented in this file
 
-## 1.4.3 + 2021-01-04
+## 1.4.4 - 2021-04-06
+
+- update for Laravel Octane
+
+## 1.4.3 - 2021-01-04
 
 - support PHP 8 (#75)
 
