@@ -71,8 +71,8 @@ Besides the above, no configuration's required. If you need to tweak things anyw
 You'll need to build two scripts: a server script and a client script. Refer to your frontend-framework-of-choice's documentation on how to build those.
 
 ```js
-mix.js('resources/assets/js/app-client.js', 'public/js')
-   .js('resources/assets/js/app-server.js', 'public/js');
+mix.js('resources/js/app-client.js', 'public/js')
+   .js('resources/js/app-server.js', 'public/js');
 ```
 
 The server script should be passed to the `ssr` function, the client script should be loaded manually. The package assumes you're using Laravel Mix, and will resolve the path for you. You can opt out of this behaviour by setting `mix` to `false` in the config file.
@@ -85,7 +85,7 @@ The server script should be passed to the `ssr` function, the client script shou
 Your server script should call a `dispatch` function to send the rendered html back to the view. Here's a quick example of a set of Vue scripts for a server-rendered app. Read the [spatie/server-side-rendering](https://github.com/spatie/server-side-rendering#core-concepts) readme for a full explanation of how everything's tied together.
 
 ```js
-// resources/assets/js/app.js
+// resources/js/app.js
 
 import Vue from 'vue';
 import App from './components/App';
@@ -96,7 +96,7 @@ export default new Vue({
 ```
 
 ```js
-// resources/assets/js/app-client.js
+// resources/js/app-client.js
 
 import app from './app';
 
@@ -104,7 +104,7 @@ app.$mount('#app');
 ```
 
 ```js
-// resources/assets/js/app-server.js
+// resources/js/app-server.js
 
 import app from './app';
 import renderVueComponentToString from 'vue-server-renderer/basic';
@@ -126,7 +126,7 @@ The package exposes an `ssr` helper to render your app.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! ssr('js/app-server.js')->render() !!}
@@ -140,7 +140,7 @@ A facade is available too.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! Ssr::entry('js/app-server.js')->render() !!}
@@ -154,7 +154,7 @@ Rendering options can be chained after the function or facade call.
 <html>
     <head>
         <title>My server side rendered app</title>
-        <script defer src="{{ mix('app-client.js') }}">
+        <script defer src="{{ mix('js/app-client.js') }}"></script>
     </head>
     <body>
         {!! ssr('js/app-server.js')->context('user', $user)->render() !!}
