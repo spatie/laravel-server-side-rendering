@@ -1,7 +1,7 @@
 # Server side rendering JavaScript in your Laravel application
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/spatie/laravel-server-side-rendering.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-server-side-rendering)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/spatie/laravel-server-side-rendering/run-tests?label=tests)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/spatie/laravel-server-side-rendering/run-tests.yml?branch=main&label=Tests&style=flat-square)
 [![Total Downloads](https://img.shields.io/packagist/dt/spatie/laravel-server-side-rendering.svg?style=flat-square)](https://packagist.org/packages/spatie/laravel-server-side-rendering)
 
 Making server side rendering a bit less hard in Laravel.
