@@ -54,5 +54,7 @@
                 "Ssr": "Spatie\\Ssr\\Facades\\Ssr"
             }
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
