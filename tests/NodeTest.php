@@ -11,7 +11,7 @@ class NodeTest extends Orchestra
     {
         parent::setUp();
 
-        $this->app->instance('path.public', __DIR__.'/public');
+        $this->app->usePublicPath(__DIR__.'/public');
     }
 
     protected function getPackageProviders($app)
