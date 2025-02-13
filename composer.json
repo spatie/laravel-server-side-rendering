@@ -18,12 +18,12 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "illuminate/support": "^10.0|^11.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
         "spatie/server-side-rendering": "dev-main"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0|^10.0",
-        "orchestra/testbench": "^8.0|^9.0"
+        "phpunit/phpunit": "^9.0|^10.0|^11.5.3",
+        "orchestra/testbench": "^8.0|^9.0|^10.0"
     },
     "autoload": {
         "psr-4": {
