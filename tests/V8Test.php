@@ -3,6 +3,7 @@
 namespace Spatie\Ssr\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Ssr\Engines\V8;
 use Spatie\Ssr\SsrServiceProvider;
 
@@ -29,7 +30,7 @@ class V8Test extends Orchestra
         $app->config->set('ssr.engine', V8::class);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_render_a_javascript_app()
     {
         $result = ssr('js/app-server.js')->enabled()->debug()->render();

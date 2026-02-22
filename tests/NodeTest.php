@@ -3,6 +3,7 @@
 namespace Spatie\Ssr\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
+use PHPUnit\Framework\Attributes\Test;
 use Spatie\Ssr\SsrServiceProvider;
 
 class NodeTest extends Orchestra
@@ -24,7 +25,7 @@ class NodeTest extends Orchestra
         $app->config->set('ssr.node.temp_path', __DIR__.'/temp');
     }
 
-    /** @test */
+    #[Test]
     public function it_can_render_a_javascript_app()
     {
         $result = ssr('js/app-server.js')->enabled()->debug()->render();
