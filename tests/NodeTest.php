@@ -24,8 +24,7 @@ class NodeTest extends Orchestra
         $app->config->set('ssr.node.temp_path', __DIR__.'/temp');
     }
 
-    /** @test */
-    public function it_can_render_a_javascript_app()
+    public function test_it_can_render_a_javascript_app()
     {
         $result = ssr('js/app-server.js')->enabled()->debug()->render();
 
